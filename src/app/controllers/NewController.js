@@ -9,9 +9,9 @@ class NewController {
     res.send("NEW DETAILT");
   }
 
-  hide(req, res) {
-    console.log("aaa ", res);
-  }
+  // hide(req, res) {
+  //   console.log("aaa ", res);
+  // }
 }
 
 module.exports = new NewController();
