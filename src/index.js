@@ -9,13 +9,28 @@ const route = require("./routes");
 
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use(express.urlencoded({ extended: true })); //middleware handle form
+app.use(
+  express.urlencoded({
+    extended: true,
+  })
+); //middleware handle form
 app.use(express.json());
 
 //template engine
-app.engine("hbs", engine({ extname: ".hbs" }));
+app.engine(
+  "hbs",
+
+  engine({ extname: ".hbs" })
+);
 app.set("view engine", "hbs");
-app.set("views", path.join(__dirname, "resources/views"));
+app.set(
+  "views",
+  path.join(
+    __dirname,
+
+    "resources/views"
+  )
+);
 console.log(path.join(__dirname, "resources/views"));
 
 app.use(morgan("combined"));
@@ -39,6 +54,4 @@ route(app);
 //   res.render("search");
 // });
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
-});
+app.listen(port, () => console.log(`Example app listening on port ${port}`));
