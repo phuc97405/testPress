@@ -8,12 +8,6 @@ class NewController {
     console.log("aaa  ", res);
     res.send("NEW DETAILT");
   }
-
-  commit(req, res) {
-    console.log("aaa  ", res);
-
-    res.send("NEW DETAILT");
-  }
 }
 
 module.exports = new NewController();
