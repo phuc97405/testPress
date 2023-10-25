@@ -5,7 +5,11 @@ class NewController {
 
   //[GET] /news/slug
   show(req, res) {
-    console.log("aaa  ");
+    console.log("aaa  ",
+    
+    res);
+
+
     res.send("NEW DETAILT");
   }
 }
