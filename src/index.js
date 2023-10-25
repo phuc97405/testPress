@@ -23,23 +23,13 @@ app.engine(
   engine({ extname: ".hbs" })
 );
 app.set("view engine", "hbs");
-app.set(
-  "views",
-  path.join(
-    __dirname,
-    "resources/views"
-  )
-);
+app.set("views", path.join(__dirname, "resources/views"));
 console.log(path.join(__dirname, "resources/views"));
 
-app.use(morgan("combined")
-
-
-
-);
+app.use(morgan("combined"));
 //test
 //Routes init
-route(     app);
+route(app);
 // app.get("/", (req, res) => {
 //   res.render("home");
 // });
