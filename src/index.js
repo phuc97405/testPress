@@ -34,7 +34,7 @@ app.set(
 console.log(path.join(__dirname, "resources/views"));
 
 app.use(morgan("combined"));
-
+//test
 //Routes init
 route(app);
 // app.get("/", (req, res) => {
