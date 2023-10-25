@@ -5,8 +5,7 @@
   "scripts": {
     "beautiful": "lint-staged",
     "start": "nodemon --inspect src/index.js",
-    "watch": "node-sass --watch src/resources/scss/ ---output src/public/css/",
-    "prepare": "husky install"
+    "watch": "node-sass --watch src/resources/scss/ ---output src/public/css/"
   },
   "author": "pista99",
   "license": "MIT",
