@@ -1,17 +1,40 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Pista99</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="/">Education</a>
+    <button class="navbar-toggler" type="button" data-toggle="'collapse">
       <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <img
+              src="https://yt3.ggpht.com/KOql6FPRzCo0KP4NJqRIxwaOuDEfE_qAed9YHrktiYsOgWAixijdiVja__9HGv16tyCKVNHmkA=s88-c-k-c0x00ffffff-no-rj"
+              alt=""
+              class="user-avatar"
+            />
+            Pista99
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/courses/create">Đăng kí kháo học</a></li>
+            <div class="dropdown-divider"></div>
+            <li><a class="dropdown-item" href="/me/stored/courses">Khóa học của tôi</a></li>
+            <li><a class="dropdown-item" href="/me/stored/courses">Bài viết của tôi</a></li>
+
+            <div class="dropdown-divider"></div>
+            <li><a class="dropdown-item" href="#">Đăng xuất</a></li>
+          </ul>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
+      </ul>
     </div>
+
   </div>
+
 </nav>

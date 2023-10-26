@@ -11,3 +11,4 @@ const Course = new Schema({
 });
 
 module.exports = mongoose.model("Course", Course);
+ 
