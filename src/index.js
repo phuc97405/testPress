@@ -1,5 +1,7 @@
 const express = require("express");
 const morgan = require("morgan");
+const methodOverride = require("method-override");
+
 const { engine } = require("express-handlebars");
 const path = require("path");
 
@@ -19,36 +21,24 @@ app.use(
   })
 ); //middleware handle form
 app.use(express.json());
+app.use(methodOverride("_method"));
 
 //template engine
 app.engine(
   "hbs",
-
-  engine({ extname: ".hbs" })
+  engine({
+    extname: ".hbs",
+    helpers: {
+      sum: (a, b) => a + b,
+    },
+  })
 );
 app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "resources", "views"));
-// console.log(path.join(__dirname, "resources/views"));
 
 app.use(morgan("combined"));
 //test
 //Routes init
 route(app);
-// app.get("/", (req, res) => {
-//   res.render("home");
-// });
-
-// app.get("/news", (req, res) => {
-//   res.render("news");
-// });
-
-// app.get("/search", (req, res) => {
-//   console.log(req.query);
-//   res.render("search");
-// });
-// app.post("/search", (req, res) => {
-//   console.log("search", req.body);
-//   res.render("search");
-// });
 
 app.listen(port, () => console.log(`App listening on port ${port}`));
