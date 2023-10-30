@@ -9,7 +9,6 @@ const app = express();
 const port = 3000;
 const route = require("./routes");
 const db = require("./config/db");
-const $ = require("jquery");
 
 //connect to DB
 db.connect();
@@ -38,7 +37,7 @@ app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "resources", "views"));
 
 app.use(morgan("combined"));
-//test
+
 //Routes init
 route(app);
 
