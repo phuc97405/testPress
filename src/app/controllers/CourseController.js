@@ -56,7 +56,7 @@ class SiteController {
       .then(() => res.redirect("back"))
       .catch(next);
   }
-  //PATCH /course/:id/restore
+  //PATCH /course/:id/force
   forceDestroy(req, res, next) {
     Course.deleteOne({ _id: req.params.id })
       .then(() => res.redirect("back"))
