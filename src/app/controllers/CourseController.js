@@ -62,6 +62,11 @@ class SiteController {
       .then(() => res.redirect("back"))
       .catch(next);
   }
+
+  //POST /courses/handle-form-actions
+  handleFormActions(req, res, next) {
+    res.json(res.body);
+  }
 }
 
 module.exports = new SiteController();
