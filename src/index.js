@@ -5,6 +5,8 @@ const methodOverride = require("method-override");
 const { engine } = require("express-handlebars");
 const path = require("path");
 
+const SortMiddleware = require("./app/middlewares/sortMiddleware");
+
 const app = express();
 const port = 3000;
 const route = require("./routes");
@@ -23,14 +25,27 @@ app.use(
 app.use(express.json());
 app.use(methodOverride("_method"));
 
+//Custom middleware
+app.use(SortMiddleware);
+app.get(
+  "/name",
+  function (req, res, next) {
+    if (req.query.admin === "admin") {
+      next();
+    }
+    res.status(403).json({ message: "Invalid admin" });
+  },
+  function (req, res, next) {
+    res.json({ message: "Successfully" });
+  }
+);
+
 //template engine
 app.engine(
   "hbs",
   engine({
     extname: ".hbs",
-    helpers: {
-      sum: (a, b) => a + b,
-    },
+    helpers: require("./helpers/handlebars"),
   })
 );
 app.set("view engine", "hbs");

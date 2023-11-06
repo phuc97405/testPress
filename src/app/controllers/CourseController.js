@@ -65,7 +65,17 @@ class SiteController {
 
   //POST /courses/handle-form-actions
   handleFormActions(req, res, next) {
-    res.json(res.body);
+    switch (req.body.action) {
+      case "delete":
+        Course.delete({ _id: req.body.courseIds })
+          .then(() => res.redirect("back"))
+          .catch(next);
+        break;
+
+      default:
+        res.json({ message: "Action is invalid" });
+        break;
+    }
   }
 }
 

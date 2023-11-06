@@ -11,21 +11,32 @@
         </label>
   </div>
 
-  <select class="form-control form-control-sm checkbox-select-all-options"  name="action" >
-    <option >-- hành động --</option>
+  <select class="form-control form-control-sm checkbox-select-all-options"  name="action" required >
+    <option value="">-- hành động --</option>
     <option value="delete">Xóa</option>
 </select>
 
-<button class="btn btn-primary btn-sm check-all-submit-btn disabled" >Thực hiện</button>
+<button class="btn btn-primary btn-sm check-all-submit-btn disabled">Thực hiện</button>
     </div>
   </div>
+
+  {{_sort.type}}
   <table class="table mt-4">
     <thead>
       <tr>
         <th scope="col" colspan="2">#</th>
-        <th scope="col">Tên khóa học</th>
-        <th scope="col">Trình độ</th>
-        <th scope="col" colspan="2">Thời gian tạo</th>
+        <th scope="col">
+          Tên khóa học
+          {{{sortable 'name' _sort}}}
+          </th> 
+        <th scope="col">
+          Trình độ
+            {{{sortable 'level' _sort}}}
+        </th>
+        <th scope="col" colspan="2">
+          Thời gian tạo
+            {{{sortable 'createdAt' _sort}}}
+        </th>
       </tr>
     </thead>
     <tbody>
@@ -128,22 +139,32 @@
       courseItemCheckbox.prop('checked', isCheckedAll);
     });
 
-    //course item checkbox changed
+     //course item checkbox changed
     courseItemCheckbox.change(function(){
      var isCheckedAll=courseItemCheckbox.length===$('input[name="courseIds[]"]:checked').length;
      checkboxAll.prop('checked', isCheckedAll);
      renderCheckAllSubmitBtn();
     });
 
-      // Check all submit button clicked
-      checkAllSubmitBtn.click(function(e){
-        console.log("Check All")
+
+    checkAllSubmitBtn.click(function(e){
       e.preventDefault();
-      var isSubmittable=!$(this).hasClass('disabled');
-      if(isSubmittable){
+
+      var isSubmitable=!$(this).hasClass('disabled');
+      if(isSubmitable){
         containerForm.submit();
-      };
-      });
+            }
+        });
+
+    checkAllSubmitBtn.on('submit',function(e){
+      var isSubmitable=!$(this).hasClass('disabled');
+            if(!isSubmitable){
+              e.preventDefault();
+            }
+        });
+
+
+   
 
     //Re-render check all submit button
     function renderCheckAllSubmitBtn(){
