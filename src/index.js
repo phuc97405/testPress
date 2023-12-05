@@ -13,7 +13,10 @@ const route = require("./routes");
 const db = require("./config/db");
 
 //connect to DB
-db.connect();
+// db.connect();
+mongoose.connect(
+  process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/press_dev"
+);
 
 app.use(express.static(path.join(__dirname, "public")));
 
