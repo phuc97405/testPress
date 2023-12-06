@@ -4,11 +4,13 @@ const { mutipleMongooseToObject } = require("../../utils/mongoose");
 class SiteController {
   //[GET] /
   index(req, res, next) {
-    Course.find({})
-      .then((courses) => {
-        res.render("home", { courses: mutipleMongooseToObject(courses) });
-      })
-      .catch(next);
+    res.render("home");
+
+    // Course.find({})
+    //   .then((courses) => {
+    //     res.render("home", { courses: mutipleMongooseToObject(courses) });
+    //   })
+    //   .catch(next);
   }
 
   //[GET] /search
