@@ -30,18 +30,18 @@ app.use(methodOverride("_method"));
 
 //Custom middleware
 app.use(SortMiddleware);
-app.get(
-  "/name",
-  function (req, res, next) {
-    if (req.query.admin === "admin") {
-      next();
-    }
-    res.status(403).json({ message: "Invalid admin" });
-  },
-  function (req, res, next) {
-    res.json({ message: "Successfully" });
-  }
-);
+// app.get(
+//   "/name",
+//   function (req, res, next) {
+//     if (req.query.admin === "admin") {
+//       next();
+//     }
+//     res.status(403).json({ message: "Invalid admin" });
+//   },
+//   function (req, res, next) {
+//     res.json({ message: "Successfully" });
+//   }
+// );
 
 //template engine
 app.engine(
