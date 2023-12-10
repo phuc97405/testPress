@@ -1,3 +1,4 @@
+"use strict"
 const express = require("express");
 // const morgan = require("morgan");
 const methodOverride = require("method-override");
@@ -11,6 +12,7 @@ const app = express();
 const port = 3000;
 const route = require("./routes");
 const db = require("./config/db");
+const { strict } = require("assert");
 require("dotenv").config();
 
 //connect to DB
@@ -30,18 +32,19 @@ app.use(methodOverride("_method"));
 
 //Custom middleware
 // app.use(SortMiddleware);
-app.get(
-  "/name",
-  function (req, res, next) {
-    if (req.query.admin === "admin") {
-      next();
-    }
-    res.status(403).json({ message: "Invalid admin" });
-  },
-  function (req, res, next) {
-    res.json({ message: "Successfully" });
-  }
-);
+// app.get(
+//   "/name",
+//   function (req, res, next) {
+//     if (req.query.admin === "admin") {
+//       next();
+//     }
+//     res.status(403).json({ message: "Invalid admin" });
+//   },
+//   function (req, res, next) {
+//     res.json({ message: "Successfully" });
+//   }
+// );
+app.get('/', function (req, res, next) {res.send('heello')})
 
 //template engine
 app.engine(
@@ -57,6 +60,6 @@ app.set("views", path.join(__dirname, "resources", "views"));
 // app.use(morgan("combined")); 
 
 //Routes init
-route(app);
+// route(app);
 
 app.listen(port, () => console.log(`App listening on port ${port}`));
