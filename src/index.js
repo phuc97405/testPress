@@ -6,7 +6,7 @@ const methodOverride = require("method-override");
 const { engine } = require("express-handlebars");
 const path = require("path");
 
-const SortMiddleware = require("src/app/middlewares/sortMiddleware");
+const SortMiddleware = require(path.join(__dirname, "app/middlewares/sortMiddleware"));
 
 const app = express();
 const port = 3000;
