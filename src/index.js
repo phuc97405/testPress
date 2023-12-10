@@ -22,13 +22,18 @@ db.connect();
 
 app.use(express.static(path.join(__dirname, "public")));
 
+
+
 app.use(
   express.urlencoded({
     extended: true,
   })
 ); //middleware handle form
-app.use(express.json());
-app.use(methodOverride("_method"));
+// app.use(express.json());
+// app.use(methodOverride("_method"));
+
+app.get('/', function (req, res, next) {res.status(200).send('hello')})
+
 
 //Custom middleware
 // app.use(SortMiddleware);
@@ -44,7 +49,6 @@ app.use(methodOverride("_method"));
 //     res.json({ message: "Successfully" });
 //   }
 // );
-app.get('/', function (req, res, next) {res.status(200).send('hello')})
 
 //template engine
 app.engine(
