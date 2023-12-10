@@ -1,12 +1,12 @@
 "use strict"
 const express = require("express");
-// const morgan = require("morgan");
+const morgan = require("morgan");
 const methodOverride = require("method-override");
 
 const { engine } = require("express-handlebars");
 const path = require("path");
 
-// const SortMiddleware = require("./app/middlewares/sortMiddleware");
+const SortMiddleware = require("./app/middlewares/sortMiddleware");
 
 const app = express();
 const port = 3000;
@@ -17,8 +17,6 @@ require("dotenv").config();
 
 //connect to DB
 db.connect();
-// console.log(process.env.MONGODB_URI);
-// db.connect(process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/press_dev");
 
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -29,26 +27,25 @@ app.use(
     extended: true,
   })
 ); //middleware handle form
-// app.use(express.json());
-// app.use(methodOverride("_method"));
+app.use(express.json());
+app.use(methodOverride("_method"));
 
-// app.get('/', function (req, res, next) {res.status(200).send('hello')})
 
 
 //Custom middleware
-// app.use(SortMiddleware);
-// app.get(
-//   "/name",
-//   function (req, res, next) {
-//     if (req.query.admin === "admin") {
-//       next();
-//     }
-//     res.status(403).json({ message: "Invalid admin" });
-//   },
-//   function (req, res, next) {
-//     res.json({ message: "Successfully" });
-//   }
-// );
+app.use(SortMiddleware);
+app.get(
+  "/name",
+  function (req, res, next) {
+    if (req.query.admin === "admin") {
+      next();
+    }
+    res.status(403).json({ message: "Invalid admin" });
+  },
+  function (req, res, next) {
+    res.json({ message: "Successfully" });
+  }
+);
 
 //template engine
 app.engine(
@@ -61,7 +58,7 @@ app.engine(
 app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "resources", "views"));
 
-// app.use(morgan("combined")); 
+app.use(morgan("combined")); 
 
 //Routes init
 route(app);
