@@ -11,12 +11,12 @@ const app = express();
 const port = 3000;
 const route = require("./routes");
 const db = require("./config/db");
+require("dotenv").config();
 
 //connect to DB
-// db.connect();
-mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/press_dev"
-);
+db.connect();
+// console.log(process.env.MONGODB_URI);
+// db.connect(process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/press_dev");
 
 app.use(express.static(path.join(__dirname, "public")));
 

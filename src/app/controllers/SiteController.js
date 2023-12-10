@@ -6,8 +6,8 @@ class SiteController {
   index(req, res, next) {
     Course.find({})
       .then((courses) => {
-        res.send("courses");
-        // res.render("home", { courses: mutipleMongooseToObject(courses) });
+        // res.send("courses");
+        res.render("home", { courses: mutipleMongooseToObject(courses) });
       })
       .catch(next);
   }
