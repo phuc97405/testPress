@@ -8,8 +8,8 @@ class SiteController {
 Course.find()
       .then((courses) => {
         console.log(courses);
-        res.send(courses);
-        // res.render("home", { courses: mutipleMongooseToObject(courses) });
+        // res.send(courses);
+        res.render("home", { courses: mutipleMongooseToObject(courses) });
       })
       .catch(next);
   }
