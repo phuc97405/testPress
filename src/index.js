@@ -1,6 +1,6 @@
 "use strict"
 const express = require("express");
-const morgan = require("morgan");
+// const morgan = require("morgan");
 const methodOverride = require("method-override");
 
 const { engine } = require("express-handlebars");
@@ -58,7 +58,7 @@ app.engine(
 app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "resources", "views"));
 
-app.use(morgan("combined")); 
+// app.use(morgan("combined")); 
 
 //Routes init
 route(app);
