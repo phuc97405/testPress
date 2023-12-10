@@ -5,7 +5,7 @@ const methodOverride = require("method-override");
 const { engine } = require("express-handlebars");
 const path = require("path");
 
-const SortMiddleware = require("./app/middlewares/sortMiddleware");
+// const SortMiddleware = require("./app/middlewares/sortMiddleware");
 
 const app = express();
 const port = 3000;
@@ -29,7 +29,7 @@ app.use(express.json());
 app.use(methodOverride("_method"));
 
 //Custom middleware
-app.use(SortMiddleware);
+// app.use(SortMiddleware);
 app.get(
   "/name",
   function (req, res, next) {
