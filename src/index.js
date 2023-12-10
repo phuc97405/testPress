@@ -66,4 +66,7 @@ app.set("views", path.join(__dirname, "resources", "views"));
 //Routes init
 // route(app);
 
-app.listen(port, () => console.log(`App listening on port ${port}`));
+app.listen(process.env.PORT || 3001, '0.0.0.0', () => {
+  console.log("Server is running.");
+});
+// app.listen(port, () => console.log(`App listening on port ${port}`));
