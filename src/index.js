@@ -7,7 +7,6 @@ const { engine } = require("express-handlebars");
 const path = require("path");
 
 // const SortMiddleware = require(__dirname+ "/app/middlewares/sortMiddleware");
-console.log(__dirname+ "/app/middlewares/sortMiddleware");
 const app = express();
 const port = 3000;
 const route = require("./routes");
