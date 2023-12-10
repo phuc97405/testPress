@@ -44,7 +44,7 @@ app.use(methodOverride("_method"));
 //     res.json({ message: "Successfully" });
 //   }
 // );
-app.get('/', function (req, res, next) {res.send('heello')})
+app.get('/', function (req, res, next) {res.status(200).send('hello')})
 
 //template engine
 app.engine(
