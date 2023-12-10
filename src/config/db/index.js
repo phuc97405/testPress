@@ -8,7 +8,6 @@ async function connect() {
     // .connect("mongodb://localhost:27017/press_dev")
     console.log("Connected!");
   } catch (error) {
-    log;
     console.log("Error connecting");
   }
 }
