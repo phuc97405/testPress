@@ -32,7 +32,7 @@ app.use(
 // app.use(express.json());
 // app.use(methodOverride("_method"));
 
-app.get('/', function (req, res, next) {res.status(200).send('hello')})
+// app.get('/', function (req, res, next) {res.status(200).send('hello')})
 
 
 //Custom middleware
@@ -64,7 +64,7 @@ app.set("views", path.join(__dirname, "resources", "views"));
 // app.use(morgan("combined")); 
 
 //Routes init
-// route(app);
+route(app);
 
 app.listen(process.env.PORT || 3001, '0.0.0.0', () => {
   console.log("Server is running.");
